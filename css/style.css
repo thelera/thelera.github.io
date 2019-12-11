@@ -4877,6 +4877,10 @@ img {
       border-color: #cbced9; }
   .control-field__input--date::-webkit-clear-button {
     display: none; }
+    .control-field__input::-webkit-datetime-edit {
+    background-color: transparent;
+    text-align: center;
+  }
   .control-field__input--date::-webkit-calendar-picker-indicator {
     display: none; }
   .control-field__input::-webkit-inner-spin-button, .control-field__input::-webkit-outer-spin-button {
