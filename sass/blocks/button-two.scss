@@ -1,0 +1,145 @@
+.button-two {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  width: 270px;
+
+  padding-top: 22px;
+  padding-bottom: 22px;
+  padding-left: 24px;
+
+  @include font-name;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: none;
+  vertical-align: middle;
+  color: $blue-4;
+
+  border: 0;
+  border-radius: $radius-1;
+  background-color: $yellow-1;
+
+  cursor: pointer;
+
+  &:hover {
+    background-color: $yellow-2;
+  }
+
+  &:focus,
+  &:active {
+    color: rgba($blue-1, 0.3);
+
+    background-color: $yellow-2;
+  }
+
+  &--bgc {
+    background-color: $grey-3;
+  }
+
+  &--center {
+    text-align: center;
+  }
+
+  // треугольник вправо
+  &::after {
+    content: "";
+
+    position: absolute;
+    top: calc(50% - 7px);
+    right: 12px;
+
+    border-top-width: 7px;
+    border-right-width: 10px;
+    border-bottom-width: 7px;
+    border-left-width: 10px;
+    border-style: solid;
+    border-color: transparent;
+    border-left-color: $blue-4;
+  }
+
+  &:focus::after,
+  &:active::after {
+    border-left-color: rgba($blue-4, 0.3);
+  }
+
+  // треугольник влево
+  &--back::after {
+    right: auto;
+    left: 12px;
+    border-color: transparent;
+    border-right-color: $blue-4;
+  }
+
+  &--back:hover {
+    background-color: transparent;
+    opacity: 0.7;
+  }
+
+  &--back:focus,
+  &--back:active {
+    color: rgba($blue-1, 0.3);
+
+    background-color: transparent;
+  }
+
+  &--back:focus::after,
+  &--back:active::after {
+    border-color: transparent;
+    border-right-color: rgba($blue-4, 0.3);
+  }
+}
+
+@media (min-width: $tablet-width) and (max-width: $desktop-width - 1px) {
+  .button-two {
+    width: 285px;
+    height: 81px;
+
+    font-size: 24px;
+
+    border-radius: $radius-2;
+
+    &::after {
+      top: calc(50% - 7px);
+      right: 25px;
+    }
+
+    &--back {
+      padding-left: 70px;
+    }
+
+    &--back::after {
+      right: auto;
+      top: calc(50% - 7px);
+      left: 36px;
+    }
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .button-two {
+    width: 285px;
+    height: 81px;
+
+    font-size: 24px;
+
+    border-radius: $radius-2;
+
+    &::after {
+      top: calc(50% - 7px);
+      right: 25px;
+    }
+
+    &--back {
+      padding-left: 70px;
+    }
+
+    &--back::after {
+      top: calc(50% - 7px);
+      right: auto;
+      left: 36px;
+    }
+  }
+}

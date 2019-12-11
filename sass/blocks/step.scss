@@ -1,0 +1,1161 @@
+.step {
+  position: relative;
+
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin-bottom: 10px;
+  padding-top: 24px;
+  padding-right: 24px;
+  padding-bottom: 24px;
+  padding-left: 24px;
+
+  @include font-name;
+  font-weight: 700;
+  line-height: 1;
+  color: $blue-4;
+
+  background-color: #ffffff;
+  border-radius: $radius-1;
+
+  &--hide {
+    display: none;
+  }
+}
+
+.step__title {
+  margin: 0;
+  margin-bottom: 18px;
+
+  font-size: 20px;
+}
+
+.step__title-new-line {
+  display: block;
+}
+
+.step__controls-list {
+  display: none;
+}
+
+.step__text {
+  margin-bottom: 25px;
+  padding: 0;
+
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.38;
+  color: $grey-5;
+
+  &--break {
+    display: none;
+  }
+}
+
+.step__checkbox-label {
+  position: relative;
+
+  margin-bottom: 26px;
+  padding-left: 39px;
+
+  font-size: 15px;
+  font-weight: 500;
+
+  fill: $blue-2;
+
+  &::before {
+    content: "";
+
+    position: absolute;
+    top: -6px;
+    left: 0;
+
+    width: 26px;
+    height: 26px;
+
+    border: 1px solid $grey-2;
+    border-radius: 4px;
+  }
+
+  &:hover::before {
+    border-color: $grey-10;
+
+    cursor: pointer;
+  }
+
+  &:focus::before,
+  &:active::before {
+    background-color: $grey-11;
+    border: none;
+
+    cursor: pointer;
+  }
+
+  &:focus .step__checkbox-icon,
+  &:active .step__checkbox-icon {
+    opacity: 0.3;
+  }
+}
+
+.step__checkbox-icon {
+  display: none;
+
+  position: absolute;
+  top: 2px;
+  left: 9px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.step__checkbox:checked + .step__checkbox-label .step__checkbox-icon {
+  display: inline;
+}
+
+.step__button {
+  &--back {
+    background-color: transparent;
+  }
+}
+
+.step__country-dropdown-title {
+  margin: 0;
+  padding-top: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #ffffff;
+
+  background-color: $blue-4;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.step__select-wrapper {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-bottom: 22px;
+
+  // маленькая стрелочка вниз
+  &::before {
+    content: "";
+
+    position: absolute;
+    top: 47px;
+    left: 170px;
+
+    width: 5px;
+    height: 10px;
+
+    background-image: url("../../img/small-arrow.svg");
+
+    opacity: 0.3;
+  }
+
+  &--add-country::before {
+    display: none;
+  }
+
+  &:nth-of-type(4) {
+    margin-bottom: 25px;
+  }
+}
+
+.step__select {
+  width: 168px;
+  height: 42px;
+  padding-left: 12px;
+
+  @include font-name;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.29;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: $blue-4;
+
+  background-color: transparent;
+  border-radius: 4px;
+  border: solid 1px $grey-2;
+
+  //-webkit-appearance: none;
+  //-moz-appearance: none;
+  appearance: none;
+
+  cursor: pointer;
+
+  &:hover {
+    border-color: $grey-10;
+  }
+
+  &:hover + .step__select-dropdown {
+    fill: $grey-10;
+  }
+
+  &--choose-country {
+    width: 220px;
+  }
+
+  &--add-country {
+    width: 220px;
+
+    border: none;
+
+    &:hover {
+      background-color: $grey-1;
+      border: none;
+    }
+
+    &:focus,
+    &:active {
+      color: rgba($blue-4, 0.3);
+      background-color: $grey-3;
+    }
+  }
+}
+
+// кнопка выпадающего списка
+.step__select-dropdown {
+  position: absolute;
+  left: 119px;
+
+  width: 50px;
+  height: 40px;
+  padding-top: 11px;
+  padding-left: 26px;
+
+  background-image: linear-gradient(to right, transparent 5%, #ffffff 40%);
+  background-position: right center;
+  background-repeat: no-repeat;
+  background-size: 50px 37px;
+
+  fill: rgba(#000000, 0.3);
+
+  cursor: pointer;
+
+
+  &--choose-country {
+    right: 7px;
+    left: auto;
+  }
+}
+
+.step__select-button {
+  position: relative;
+  z-index: 1;
+
+  display: block;
+  width: 53px;
+  height: 42px;
+  margin-left: -1px;
+
+  border-radius: 4px;
+  border: solid 1px $grey-2;
+
+  &--bosnia {
+    background-image: url("../../img/flag-bosnia.svg");
+    background-position: center;
+    background-size: 35px 24px;
+    background-repeat: no-repeat;
+  }
+
+  &--czech {
+    background-image: url("../../img/flag-czech.svg");
+    background-position: center;
+    background-size: 35px 24px;
+    background-repeat: no-repeat;
+  }
+
+  // черный круг
+  &::before {
+    content: "";
+
+    position: absolute;
+
+    left: -4px;
+    top: 15px;
+
+    width: 8px;
+    height: 8px;
+
+    background-color: #000000;
+    border-radius: 50%;
+  }
+
+  &--choose-country::before {
+    left: -57px;
+
+    background-color: #ffffff;
+    border: 1px solid $grey-2;
+  }
+
+  // черный круг
+  &--add-country::before {
+    left: -57px;
+
+    background-color: $grey-1;
+    border: 1px solid $grey-2;
+  }
+
+  // фон для кнопки-крестик
+  &::after {
+    content: "";
+
+    position: absolute;
+    top: -11px;
+    left: 41px;
+
+    width: 21px;
+    height: 21px;
+
+    background-color: $grey-1;
+    border-radius: 50%;
+  }
+
+  &--choose-country::after {
+    left: -11px;
+  }
+
+  &--add-country::after {
+    display: none;
+  }
+
+  // поле "Выберите страну"
+  &--choose-country {
+    width: 0;
+    background: none;
+    border: 0;
+  }
+
+  // поле "Добавить страну"
+  &--add-country {
+    width: 0;
+    background: none;
+    border: 0;
+  }
+
+  &--hide {
+    display: none;
+  }
+
+  &:last-of-type::after {
+    border: none;
+  }
+}
+
+//кнопка-крестик
+.step__select-button-image {
+  position: absolute;
+  z-index: 1;
+  top: -4px;
+  right: -5px;
+
+  opacity: 0.1;
+
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.3;
+  }
+
+  &:focus,
+  &:active {
+    opacity: 0.1;
+  }
+
+  // в поле "Добавить страну" заменяется на "плюс"
+  &--add-country {
+    top: 10px;
+    right: 12px;
+    width: 16px;
+    height: 14px;
+
+    opacity: 0.2;
+
+    &:hover {
+      opacity: 0.3;
+    }
+
+    &:focus,
+    &:active {
+      opacity: 0.1;
+    }
+  }
+}
+
+.step__country-dropdown {
+  position: absolute;
+  z-index: 10;
+  top: 317px;
+  left: auto;
+
+  flex-direction: column;
+  display: none;
+  width: 220px;
+
+  background-color: #ffffff;
+  box-shadow: 0 20px 50px 0 rgba(29, 46, 91, 0.1);
+  border-bottom-left-radius: $radius-2;
+  border-bottom-right-radius: $radius-2;
+
+  &--show {
+    display: flex;
+  }
+}
+
+.step__country {
+  position: relative;
+
+  display: block;
+  margin-bottom: 16px;
+  padding-left: 12px;
+
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1;
+
+  &--empty::before {
+    content: "";
+
+    position: absolute;
+    top: 5px;
+    left: -14px;
+
+    width: 17px;
+    height: 287px;
+
+    background-image: url("../../img/line.png");
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: 17px 287px;
+  }
+}
+
+.step__country-plan {
+  width: 220px;
+  height: 220px;
+  padding-top: 13px;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-bottom: 13px;
+
+  @include font-name;
+  font-size: 16px;
+  line-height: 1.38;
+  color: $grey-5;
+
+  border-radius: 4px;
+  border: solid 1px $grey-2;
+
+  resize: none;
+
+  &::placeholder {
+    color: rgba($grey-5, 0.3);
+  }
+
+  &:hover {
+    border-color: $grey-10;
+  }
+
+  &:focus,
+  &:active {
+    outline: none;
+    border-color: $blue-1;
+  }
+}
+
+.step__country-plan-wrapper {
+  position: relative;
+
+  margin-bottom: 28px;
+
+  &--error {
+    font-weight: 400;
+    line-height: 1.2;
+
+    .step__country-plan {
+      border-color: #f47e7e;
+    }
+  }
+
+  &--error::before {
+    content: "Это поле должно быть заполнено";
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 220px;
+    height: 57px;
+    padding-top: 10px;
+    padding-right: 24px;
+    padding-left: 24px;
+
+    color: #ff0000;
+
+    background-color: #ffefef;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border: solid 1px #f47e7e;
+    border-top: none;
+  }
+}
+
+.step__dropdown-close-button {
+  position: absolute;
+  top: 12px;
+  right: 17px;
+
+  background-color: transparent;
+  border: 0;
+
+  fill: #ffffff;
+  opacity: 0.3;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &:focus,
+  &:active {
+    opacity: 0.1;
+  }
+}
+
+.step__dropdown-button-image {
+  width: 9px;
+  height: 9px;
+}
+
+// .step__button--back {
+//   &--back:hover {
+//     background-color: transparent;
+
+//     opacity: 0.7;
+//   }
+
+//   &--back:focus,
+//   &--back:active {
+//     background-color: transparent;
+
+//     opacity: 0.3;
+//   }
+// }
+
+@media (max-width: $mobile-width-only) {
+  .step__button {
+    justify-content: center;
+    align-items: center;
+    width: 230px;
+    padding-top: 5px;
+    padding-right: 24px;
+    padding-bottom: 5px;
+
+    font-size: 20px;
+    line-height: 1.5;
+    text-transform: uppercase;
+
+    border-radius: $radius-3;
+
+    &::after {
+      display: none;
+    }
+  }
+}
+
+@media (min-width: $tablet-width) and (max-width: $desktop-width - 1px) {
+  .step {
+    width: 618px;
+    margin-bottom: 40px;
+    padding-top: 49px;
+    padding-right: 43px;
+    padding-bottom: 55px;
+    padding-left: 43px;
+
+    border-radius: $radius-4;
+  }
+
+  .step__title {
+    order: -4;
+    margin-bottom: 37px;
+
+    font-size: 36px;
+  }
+
+  .step__title-new-line {
+    display: block;
+  }
+
+  .step__controls-list {
+    display: none;
+  }
+
+  .step__text {
+    order: -3;
+    margin-bottom: 42px;
+
+    font-size: 20px;
+    line-height: 1.2;
+
+    &--break {
+      display: block;
+    }
+  }
+
+  .step__control-field:first-of-type {
+    order: -2;
+  }
+
+  .step__checkbox-label {
+    order: -1;
+    margin-bottom: 35px;
+    padding-left: 59px;
+
+    font-size: 20px;
+    line-height: 0.9;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    &::before {
+      top: -6px;
+      left: 0;
+
+      width: 36px;
+      height: 36px;
+
+      border-radius: 4px;
+    }
+  }
+
+  .step__checkbox-icon {
+    top: 6px;
+    left: 12px;
+
+    width: 12px;
+    height: 12px;
+  }
+
+  .step__select-wrapper {
+    justify-content: flex-start;
+    padding-bottom: 15px;
+
+    //вертикальная линия
+    &::before {
+      content: "";
+      position: absolute;
+
+      left: 398px;
+      top: 0;
+
+      width: 1px;
+      height: 100%;
+
+      background-color: $grey-6;
+      background-image: none;
+
+      opacity: 1;
+    }
+
+    &--add-country::before {
+      display: block;
+    }
+
+    &:first-of-type {
+      padding-top: 41px;
+
+      border-top: 1px solid $grey-6;
+    }
+
+    &:first-of-type::after {
+      top: 68px;
+    }
+
+    &:nth-of-type(4) {
+      margin-bottom: 49px;
+    }
+  }
+
+  .step__select {
+    width: 369px;
+    height: 70px;
+    padding-left: 27px;
+
+    font-size: 20px;
+    line-height: 0.9;
+    letter-spacing: 2px;
+  }
+
+  .step__select-dropdown {
+    bottom: 30px;
+    left: 315px;
+
+    &--add-country {
+      bottom: 0;
+    }
+  }
+
+  .step__select-dropdown-image {
+    width: 17px;
+    height: 9px;
+
+    &--add-country {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .step__select-button {
+    width: 162px;
+    height: 70px;
+
+    border-radius: 0;
+    border: none;
+
+    &--bosnia {
+      background-size: 70px 47px;
+    }
+
+    &--czech {
+      background-size: 70px 47px;
+    }
+
+    // черный круг
+    &::before {
+      left: 22px;
+      top: 25px;
+
+      width: 15px;
+      height: 15px;
+    }
+
+    // фон для кнопки-крестик
+    &::after {
+      display: none;
+    }
+  }
+
+  .step__select-button-image {
+    top: 30px;
+    right: 0;
+
+    width: 17px;
+    height: 17px;
+
+    // в поле "Добавить страну" заменяется на "плюс"
+    &--add-country {
+      top: 23px;
+      right: 173px;
+
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .step__country-dropdown {
+    top: 550px;
+    left: auto;
+
+    flex-direction: row;
+    width: 575px;
+    padding-left: 27px;
+
+    border-bottom-left-radius: $radius-4;
+    border-bottom-right-radius: $radius-4;
+  }
+
+  .step__country-dropdown-title {
+    position: absolute;
+    top: -70px;
+    left: 0;
+    width: 369px;
+    height: 70px;
+    padding-top: 27px;
+    padding-right: 27px;
+    padding-bottom: 27px;
+    padding-left: 27px;
+
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 2px;
+  }
+
+  .step__country-keyboard {
+    margin-top: 34px;
+    margin-bottom: 39px;
+  }
+
+  .step__dropdown-close-button {
+    top: -45px;
+    right: auto;
+    left: 322px;
+  }
+
+  .step__dropdown-button-image {
+    width: 17px;
+    height: 17px;
+  }
+
+  .step__button-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .step__button--back {
+    width: 224px;
+  }
+
+  .step__country {
+    margin-bottom: 37px;
+    padding: 0;
+
+    font-size: 30px;
+    line-height: 0.6;
+
+    &--empty::before {
+      display: none;
+    }
+  }
+
+  .step__country-plan {
+    width: 527px;
+    height: 142px;
+    padding-top: 21px;
+    padding-right: 19px;
+    padding-left: 19px;
+    padding-bottom: 21px;
+
+    font-size: 20px;
+    line-height: 1.2;
+  }
+
+  .step__country-plan-wrapper {
+    margin-bottom: 47px;
+
+    font-size: 20px;
+
+    &--error::before {
+      width: 527px;
+      padding-top: 19px;
+    }
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .step {
+    width: 1320px;
+    margin-bottom: 44px;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 100px;
+    padding-right: 162px;
+    padding-bottom: 105px;
+    padding-left: 162px;
+
+    border-radius: $radius-5;
+  }
+
+  .step__title {
+    order: -4;
+    margin-bottom: 37px;
+
+    font-size: 36px;
+    line-height: 1.39;
+  }
+
+  .step__title-new-line {
+    display: inline;
+  }
+
+  .step__controls-list {
+    position: absolute;
+    top: 115px;
+    right: 203px;
+
+    display: block;
+  }
+
+  .step__text {
+    order: -3;
+    width: 600px;
+    margin-bottom: 56px;
+
+    font-size: 20px;
+    line-height: 1.2;
+
+    &--break {
+      display: block;
+    }
+  }
+
+  .step__control-field:first-of-type {
+    order: -2;
+    padding-top: 30px;
+
+    &::before {
+      content: "";
+      position: absolute;
+
+      left: 0;
+      top: 0;
+
+      width: 1000px;
+      height: 1px;
+
+      background-color: $grey-6;
+    }
+  }
+
+  .step__checkbox-label {
+    position: absolute;
+    top: 365px;
+    right: 162px;
+
+    order: -1;
+    margin: 0;
+    margin-left: auto;
+    padding-left: 59px;
+
+    font-size: 20px;
+    line-height: 0.9;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    &::before {
+      top: -10px;
+      left: 0;
+
+      width: 36px;
+      height: 36px;
+
+      border-radius: 4px;
+    }
+  }
+
+  .step__checkbox-icon {
+    top: 1px;
+    left: 12px;
+
+    width: 12px;
+    height: 12px;
+  }
+
+  .step__select-wrapper {
+    justify-content: flex-start;
+    padding-bottom: 15px;
+
+    //вертикальная линия
+    &::before {
+      content: "";
+      position: absolute;
+
+      left: 774px;
+      top: 0;
+
+      width: 1px;
+      height: 100%;
+
+      background-color: $grey-6;
+      background-image: none;
+
+      opacity: 1;
+    }
+
+    &--add-country::before {
+      display: block;
+    }
+
+    // кнопка выпадающего списка
+    &::after {
+      left: 686px;
+      top: 27px;
+
+      width: 17px;
+      height: 9px;
+
+      background-position: 0 0;
+      background-size: 17px 9px;
+    }
+
+    &:first-of-type {
+      padding-top: 41px;
+
+      border-top: 1px solid $grey-6;
+    }
+
+    &:first-of-type::after {
+      top: 68px;
+    }
+
+    &:nth-of-type(4) {
+      margin-bottom: 59px;
+    }
+  }
+
+  .step__select {
+    width: 730px;
+    height: 70px;
+    padding-left: 27px;
+
+    font-size: 20px;
+    line-height: 0.9;
+    letter-spacing: 2px;
+  }
+
+  .step__select-dropdown {
+    bottom: 30px;
+    left: 665px;
+
+    background: none;
+  }
+
+  .step__select-dropdown-image {
+    width: 17px;
+    height: 9px;
+
+    &--add-country {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  .step__select-button {
+    width: 269px;
+    height: 70px;
+
+    border-radius: 0;
+    border: none;
+
+    background-position: 87px center;
+
+    &--bosnia {
+      background-size: 70px 47px;
+    }
+
+    &--czech {
+      background-size: 70px 47px;
+    }
+
+    // черный круг
+    &::before {
+      left: 40px;
+      top: 25px;
+
+      width: 15px;
+      height: 15px;
+      margin: 0;
+    }
+
+    // фон для кнопки-крестик
+    &::after {
+      display: none;
+    }
+  }
+
+  .step__select-button-image {
+    top: 30px;
+    right: 0;
+
+    width: 17px;
+    height: 17px;
+
+    // в поле "Добавить страну" заменяется на "плюс"
+    &--add-country {
+      top: 23px;
+      left: -40px;
+
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  .step__country-dropdown {
+    top: 592px;
+    left: auto;
+
+    flex-direction: row;
+    width: 730px;
+    padding-left: 27px;
+
+    border-bottom-left-radius: $radius-4;
+    border-bottom-right-radius: $radius-4;
+  }
+
+  .step__country-dropdown-title {
+    position: absolute;
+    top: -70px;
+    left: 0;
+    width: 730px;
+    height: 70px;
+    padding-top: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    padding-left: 30px;
+
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 2px;
+  }
+
+  .step__dropdown-close-button {
+    top: -45px;
+    right: 28px;
+  }
+
+  .step__dropdown-button-image {
+    width: 17px;
+    height: 17px;
+  }
+
+  .step__button-wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .step__button--back {
+    width: 224px;
+  }
+
+  .step__country {
+    margin-bottom: 37px;
+    padding: 0;
+
+    font-size: 30px;
+    line-height: 0.6;
+
+    &--empty::before {
+      display: none;
+    }
+  }
+
+  .step__country-plan {
+    width: 730px;
+    height: 142px;
+    padding-top: 28px;
+    padding-right: 27px;
+    padding-left: 27px;
+    padding-bottom: 28px;
+
+    font-size: 20px;
+    line-height: 1.2;
+  }
+
+  .step__country-plan-wrapper {
+    margin-bottom: 56px;
+
+    font-size: 20px;
+
+    &--error::before {
+      width: 730px;
+      padding-top: 19px;
+    }
+  }
+}
