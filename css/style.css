@@ -2251,12 +2251,11 @@ img {
       -ms-flex-align: center;
           align-items: center;
   width: 270px;
-  overflow: hidden;
   font-family: "BloggerSans", "Arial", sans-serif;
   background-color: #ffffff;
   border-radius: 10px;
-  -webkit-box-shadow: 0px 6px 21px 0 rgba(0, 0, 0, 0.08);
-          box-shadow: 0px 6px 21px 0 rgba(0, 0, 0, 0.08);
+  -webkit-box-shadow: 0 6px 21px 0 rgba(0, 0, 0, 0.08);
+          box-shadow: 0 6px 21px 0 rgba(0, 0, 0, 0.08);
   overflow: visible; }
   .travelmates-item:hover .travelmates-item__image {
     -webkit-transform: scale(1.25);
@@ -3382,7 +3381,8 @@ img {
   .footer__socials {
     width: auto;
     margin: 0;
-    padding: 0; }
+    padding: 0;
+    border-bottom: none; }
   .footer__copyright {
     margin-left: auto; } }
 
@@ -3407,7 +3407,8 @@ img {
   .footer__socials {
     width: auto;
     margin: 0;
-    padding: 0; }
+    padding: 0;
+    border-bottom: none; }
   .footer__copyright {
     margin-left: auto; } }
 
@@ -4864,8 +4865,12 @@ img {
       border-color: #cbced9; }
     .control-field__input--date:focus, .control-field__input--date:active {
       border-color: #cbced9; }
+  .control-field__input--date::-webkit-clear-button {
+    display: none; }
+  .control-field__input--date::-webkit-calendar-picker-indicator {
+    display: none; }
   .control-field__input::-webkit-inner-spin-button, .control-field__input::-webkit-outer-spin-button {
-    -webkit-appearance: none; }
+    display: none; }
 
 .control-field__button {
   position: absolute;
@@ -4873,11 +4878,12 @@ img {
   border: none;
   cursor: pointer; }
   .control-field__button--minus {
-    top: 21px;
+    top: 15px;
     left: 14px;
     width: 14px;
-    height: 2px;
+    height: 14px;
     background-image: url("../../img/qty-minus-mobile.svg");
+    background-position: center;
     background-size: 14px 2px;
     opacity: 0.2; }
     .control-field__button--minus:hover {
@@ -4938,10 +4944,10 @@ img {
       height: 85px;
       font-size: 36px; }
   .control-field__button--minus {
-    top: 34px;
+    top: 25px;
     left: 23px;
     width: 20px;
-    height: 2px;
+    height: 20px;
     background-image: url("../../img/qty-minus.svg");
     background-size: 20px 2px; }
   .control-field__button--plus {
@@ -4990,10 +4996,10 @@ img {
       height: 85px;
       font-size: 36px; }
   .control-field__button--minus {
-    top: 34px;
+    top: 25px;
     left: 20px;
     width: 20px;
-    height: 2px;
+    height: 20px;
     background-image: url("../../img/qty-minus.svg");
     background-size: 20px 2px; }
   .control-field__button--plus {
@@ -5900,7 +5906,7 @@ img {
 
 .travelmates-filtered__button {
   position: relative;
-  width: 148px;
+  width: 155px;
   margin: 0 auto;
   padding-left: 33px;
   background-color: transparent; }
